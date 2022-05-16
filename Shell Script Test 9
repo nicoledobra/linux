@@ -1,0 +1,16 @@
+#!/bin/bash                             
+echo -n "Insert first string: "                                                   
+read VAR1                            
+echo -n "Insert second string: "                                                   
+read VAR2                            
+if [ "$VAR1" -eq "$VAR2" ]; then                           
+echo "The two strings are equal."                                                        
+else                       
+echo "The two strings are not equal."                                                          
+fi
+
+R:
+$./script9.sh
+Insert first string: 3
+Insert second string: 3
+The two strings are equal.
