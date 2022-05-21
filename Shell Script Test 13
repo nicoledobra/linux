@@ -1,0 +1,3 @@
+[ -x file ]
+
+R: Comprova si "file" existeix i si té permisos d'execució
