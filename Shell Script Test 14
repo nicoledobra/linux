@@ -1,0 +1,2 @@
+[ $x -ne $y ]
+R:  Comprova si els valors emmagatzemats a les variables x i y no són iguals
