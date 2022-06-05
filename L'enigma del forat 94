@@ -1,0 +1,20 @@
+#
+!/bin/bash
+TEXT="WinterIsComing"
+SUB1="${TEXT:0:6}"
+SUB2="${TEXT:6:2}"
+SUB3="${TEXT:8:6}"
+echo "$SUB
+3
+"
+echo "$SUB
+2
+"
+echo "$SUB
+1
+"
+R: Coming
+
+   Is
+
+   Winter
