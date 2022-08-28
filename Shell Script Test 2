@@ -1,0 +1,14 @@
+#!/bin/bash
+HELLO="bye"
+function hello {
+local HELLO="how are you"
+echo $HELLO
+}
+echo $HELLO
+hello
+echo $HELLO
+
+R:
+bye
+how are you
+bye
