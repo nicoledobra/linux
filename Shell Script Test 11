@@ -1,0 +1,7 @@
+#!/bin/bash                                                            
+echo -n "Insert text: "                                                          
+read VAR                                                            
+echo "${#VAR}"
+
+ R: codelearn
+ VAR = 9
