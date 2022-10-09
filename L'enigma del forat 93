@@ -1,0 +1,24 @@
+#!/bin/bash
+VAR1=11
+VAR2=11
+VAR3=12
+if [ $VAR1 -eq $VAR2 ]; then
+    if [ $VAR1 -eq $VAR3 ]; then
+        echo  "The three variables are equal."
+    else
+        echo "The first two variables are equal, but the third is not the same"
+    fi
+else
+    if [ $VAR1 -eq $VAR3 ]; then
+        echo "The first two variables are not equal, but the first and the third are equal"
+    elif [ $VAR2 -eq $VAR3 ]; then
+        echo "The first two variables are not equal, but the second and the third are equal"
+    
+else
+        echo "None of the variables are equal"
+    fi
+fi
+
+R:
+The first two variables are equal, but the third is not the same
+
