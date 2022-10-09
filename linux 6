@@ -1,0 +1,5 @@
+cd 2015/feb/
+ls
+rmdir media
+mkdir media
+ls
