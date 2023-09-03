@@ -1,0 +1,32 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que demani a l'usuari un número de tres dígits i ens digui si aquest és capicua o si no ho és.
+Anomeneu palindrome.sh a aquest guió.
+
+Un exemple d'ús d'aquest guió podria ser:
+$ ./palindrome.sh
+Insert a 3 digit number: 123
+Number is not a palindrome
+$ ./palindrome.sh
+Insert a 3 digit number: 121
+Number is a palindrome
+$ ./palindrome.sh
+Insert a 3 digit number: 12
+Not a 3 digit number
+
+CODE:
+#!/bin/bash
+echo -n "Insert a 3 digit number: "
+read number
+EXPLICACIÓ: # Comprobar si el número tiene tres dígitos
+if [[ $number =~ ^[0-9]{3}$ ]]; then
+EXPLICACIÓ: # Invertir el número
+    reversed=$(echo "$number" | rev)
+EXPLICACIÓ: # Comprobar si el número original es igual al número invertido
+    if [ "$number" == "$reversed" ]; then
+        echo "Number is a palindrome"
+    else
+        echo "Number is not a palindrome"
+    fi
+else
+    echo "Not a 3 digit number"
+fi
