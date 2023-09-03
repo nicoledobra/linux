@@ -2,7 +2,7 @@ ENUNCIAT:
 Dissenyeu un guió (shell script) que demani a l'usuari un número de tres dígits i ens digui si aquest és capicua o si no ho és.
 Anomeneu palindrome.sh a aquest guió.
 
-Un exemple d'ús d'aquest guió podria ser:
+EXEMPLES:
 $ ./palindrome.sh
 Insert a 3 digit number: 123
 Number is not a palindrome
