@@ -1,0 +1,65 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que demani a l'usuari dotze colors d'entre les següents possibilitats: vermell, verd, blau i negre. 
+Després, caldrà mostrar quantes vegades s'ha introduït cadascun dels colors. 
+Cal que porteu el comptatge també del número de colors donats que no siguin vàlids.
+Anomena aquest guió amb el nom colors.sh.
+
+EXEMPLES:
+$ ./colors.sh
+
+Choose color between red, green, blue and black: pink
+Choose color between red, green, blue and black: blue
+Choose color between red, green, blue and black: black
+Choose color between red, green, blue and black: green
+Choose color between red, green, blue and black: red
+Choose color between red, green, blue and black: yellow
+Choose color between red, green, blue and black: green
+Choose color between red, green, blue and black: green
+Choose color between red, green, blue and black: red
+Choose color between red, green, blue and black: blue
+Choose color between red, green, blue and black: black
+Choose color between red, green, blue and black: yellow
+You have chosen red 2 times You have chosen green 3 times You have chosen blue 2 times You have chosen black 2 times You have missed 3 times
+
+CODE:
+#!/bin/bash
+
+EXPLICACIÓ: # Inicializar contadores para colores válidos
+red_count=0
+green_count=0
+blue_count=0
+black_count=0
+
+EXPLICACIÓ: # Inicializar contador para colores no válidos
+invalid_count=0
+
+EXPLICACIÓ: # Bucle para recopilar los colores del usuario
+for ((i=1; i<=12; i++)); do
+    echo -n "Choose color between red, green, blue and black: "
+    read color
+
+    case $color in
+        "red")
+            ((red_count++))
+            ;;
+        "green")
+            ((green_count++))
+            ;;
+        "blue")
+            ((blue_count++))
+            ;;
+        "black")
+            ((black_count++))
+            ;;
+        *)
+            ((invalid_count++))
+            ;;
+    esac
+done
+
+EXPLICACIÓ: # Mostrar los resultados
+echo -n "You have chosen red $red_count times"
+echo -n "You have chosen green $green_count times"
+echo -n "You have chosen blue $blue_count times"
+echo -n "You have chosen black $black_count times"
+echo -n "You have missed $invalid_count times"
