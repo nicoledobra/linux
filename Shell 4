@@ -1,0 +1,23 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que demani a l'usuari un número i mostri per pantalla un missatge indicant si aquest és parell o imparell.
+Anomeneu a aquest guió iseven.sh.
+
+EXEMPLES:
+$ ./iseven.sh
+Enter a number to see if the number is odd or even: 1
+Number 1 is odd
+$ ./iseven.sh
+Enter a number to see if the number is odd or even: 2
+Number 2 is even
+
+CODE:
+#!/bin/bash
+EXPICACIÓ: # Sol·licitar a l'usuari un número
+echo -n "Enter a number to see if the number is odd or even: "
+read num
+EXPICACIÓ: # Comprovar si el número és parell o imparell
+if [ $((num % 2)) -eq 0 ]; then
+  echo "Number $num is even"
+else
+  echo "Number $num is odd"
+fi
