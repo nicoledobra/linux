@@ -1,0 +1,92 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que demani l'any en què vas nàixer i mostri per pantalla el signe del zodíac xinès que et correspon.
+Anomena aquest guió com a zodiac.sh.
+
+EXEMPLES:
+$ ./zodiac.sh
+Insert the year you were born: 1980
+Your Chinese Zodiac Sign is Monkey
+$ ./zodiac.sh
+Insert the year you were born: 1981
+Your Chinese Zodiac Sign is Rooster
+$ ./zodiac.sh
+Insert the year you were born: 1982
+Your Chinese Zodiac Sign is Dog
+$ ./zodiac.sh
+Insert the year you were born: 1983
+Your Chinese Zodiac Sign is Pig 
+$ ./zodiac.sh
+Insert the year you were born: 1984
+Your Chinese Zodiac Sign is Rat
+$ ./zodiac.sh
+Insert the year you were born: 1985
+Your Chinese Zodiac Sign is Ox
+$ ./zodiac.sh
+Insert the year you were born: 1986
+Your Chinese Zodiac Sign is Tiger
+$ ./zodiac.sh
+Insert the year you were born: 1987 
+Your Chinese Zodiac Sign is Rabbit
+$ ./zodiac.sh
+Insert the year you were born: 1988
+Your Chinese Zodiac Sign is Dragon
+$ ./zodiac.sh
+Insert the year you were born: 1989
+Your Chinese Zodiac Sign is Snake
+$ ./zodiac.sh
+Insert the year you were born: 1990 
+Your Chinese Zodiac Sign is Horse
+$ ./zodiac.sh
+Insert the year you were born: 1991 
+Your Chinese Zodiac Sign is Goat
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Solicitar al usuario el año de nacimiento
+echo "Insert the year you were born: "
+read birth_year
+EXPLICACIÓ: # Calcular el signo del zodíaco chino
+case $((birth_year % 12)) in
+    0)
+        zodiac_sign="Monkey"
+        ;;
+    1)
+        zodiac_sign="Rooster"
+        ;;
+    2)
+        zodiac_sign="Dog"
+        ;;
+    3)
+        zodiac_sign="Pig"
+        ;;
+    4)
+        zodiac_sign="Rat"
+        ;;
+    5)
+        zodiac_sign="Ox"
+        ;;
+    6)
+        zodiac_sign="Tiger"
+        ;;
+    7)
+        zodiac_sign="Rabbit"
+        ;;
+    8)
+        zodiac_sign="Dragon"
+        ;;
+    9)
+        zodiac_sign="Snake"
+        ;;
+    10)
+        zodiac_sign="Horse"
+        ;;
+    11)
+        zodiac_sign="Goat"
+        ;;
+    *)
+        echo "Invalid year"
+        exit 1
+        ;;
+esac
+EXPLICACIÓ: # Mostrar el resultado
+echo "Your Chinese Zodiac Sign is $zodiac_sign"
