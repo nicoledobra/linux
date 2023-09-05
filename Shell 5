@@ -1,0 +1,37 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que demani a l'usuari una paraula i la seva longitud. El guió ha de mostrar per pantalla si hi ha el mateix número de vocals i consonants a la paraula o, si no, de quin tipus n'hi ha més.
+Anomena el guió amb el nom analizeword.sh.
+
+EXEMPLE:
+
+$ ./analizeword.sh
+Insert word: banana
+Insert word length: 6
+The word banana has the same number of vowels than consonants
+$ ./analizeword.sh
+Insert word: bananas
+Insert word length: 7
+The word bananas has more consonants than vowels
+$ ./analizeword.sh
+Insert word: bananae
+Insert word length: 7
+The word bananae has fewer consonants than vowels
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Demanar a l'usuari una paraula i la seva longitud
+echo -n "Insert word: "
+read word
+echo -n "Insert word length: "
+read length
+EXPLICACIÓ: # Comptar el nombre de vocals i consonants a la paraula
+vowels=$(echo $word | tr -cd "aeiouAEIOU" | wc -c)
+consonants=$(echo $word | tr -cd "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ" | wc -c)
+EXPLICACIÓ: # Comparar el nombre de vocals i consonants i mostrar el resultat
+if [ $vowels -eq $consonants ]; then
+  echo "The word $word tthe same number of vowels than consonants"
+elif [ $vowels -gt $consonants ]; then
+  echo "The word $word has fewer consonants than vowels"
+else
+  echo "The word $word has more consonants than vowels"
+fi
