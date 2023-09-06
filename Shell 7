@@ -1,0 +1,16 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que mostri una salutació a l'usuari actual.
+Anomeneu aquest guió amb el nom WHOami.sh.
+
+EXEMPLES:
+$ ./WHOami.sh
+Hi, root
+$ ./WHOami.sh
+Hi, codelearn
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Obtenir el nom de l'usuari actual
+current_user=$(whoami)
+EXPLICACIÓ: # Mostrar la salutació
+echo "Hi, $current_user"
