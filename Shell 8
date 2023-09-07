@@ -1,0 +1,21 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que determini si estem a dia 25. 
+Si és així mostrarà un missatge amb el text "Today is 25" i, si no ho és, mostrarà un missatge amb el text "Oh! Not yet 25".
+Anomena aquest guió amb el nom keydate.sh.
+
+EXEMPLES:
+$ ./keydate.sh
+Oh! Not yet 25
+$ ./keydate.sh
+Today is 25
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Obtenir la data actual
+current_date=$(date +%d)
+EXPLICACIÓ: # Comprovar si la data actual és 25
+if [ "$current_date" -eq 25 ]; then
+  echo "Today is 25"
+else
+  echo "Oh! Not yet 25"
+fi
