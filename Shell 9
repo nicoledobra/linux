@@ -1,0 +1,23 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que recuperi el contingut d'un fitxer anomenat data.txt.
+Després cal que comprovi si el contingut del fitxer és la paraula "CODELEARN" o no, mostrant un missatge informatiu.
+Anomeneu aquest guió validate.sh.
+
+EXEMPLES:
+$ ./validate.sh
+Yes, the file contains the word CODELEARN
+$ ./validate.sh
+No, the file does not contain the word CODELEARN
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Definir el nom del fitxer
+file_name="data.txt"
+EXPLICACIÓ: # Llegir el contingut del fitxer
+file_content=$(cat "$file_name")
+EXPLICACIÓ: # Comprovar si el contingut conté la paraula "CODELEARN"
+if [[ $file_content == *"CODELEARN"* ]]; then
+  echo "Yes, the file contains the word CODELEARN"
+else
+  echo "No, the file does not contain the word CODELEARN"
+fi
