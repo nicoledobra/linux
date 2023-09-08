@@ -1,0 +1,22 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que comprovi si la segona columna del fitxer "data.txt" (que només conté una línia), conté la paraula "CODELEARN".
+Anomena aquest guió amb el nom validate2.sh.
+
+EXEMPLES:
+$ ./validate2.sh
+Yes, the word CODELEARN can be found in the second column of the file
+$ ./validate2.sh
+No, the word CODELEARN can not be found in the second column of the file
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Definir el nom del fitxer
+file_name="data.txt"
+EXPLICACIÓ: # Llegir el contingut de la segona columna del fitxer
+second_column=$(awk '{print $2}' "$file_name")
+EXPLICACIÓ: # Comprovar si la segona columna conté la paraula "CODELEARN"
+if [[ "$second_column" != *"CODELEARN"* ]]; then
+  echo "Yes, the word CODELEARN can be found in the second column of the file"
+else
+  echo "No, the word CODELEARN can not be found in the second column of the file"
+fi
