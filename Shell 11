@@ -1,0 +1,26 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que comprovi si les tres primeres columnes del fitxer "data.txt" (que contindrà una sola línia) són iguals o són diferents.
+Anomeneu aquest guió amb el nom validate3.sh.
+
+EXEMPLES:
+data.txt: hello hello hello
+$ ./validate3.sh
+Yes, they are equal
+data.txt: hello hello bye
+$ ./validate3.sh
+No, they are not equal
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Definir el nom del fitxer
+file_name="data.txt"
+EXPLICACIÓ: # Llegir el contingut de les tres primeres columnes del fitxer
+columns=$(awk '{print $1 " " $2 " " $3}' "$file_name")
+EXPLICACIÓ: # Separar les columnes en un array per a la comparació
+IFS=' ' read -r -a columns_array <<< "$columns"
+EXPLICACIÓ: # Comprovar si les tres primeres columnes són iguals
+if [ "${columns_array[0]}" = "${columns_array[1]}" ] && [ "${columns_array[0]}" = "${columns_array[2]}" ]; then
+  echo "Yes, they are equal"
+else
+  echo "No, they are not equal"
+fi
