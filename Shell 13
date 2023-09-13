@@ -1,0 +1,29 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que rebi diversos noms de fitxer com a paràmetres i, per cadascun d'ells,
+validi si el nom correspon a un fitxer existent i, si és així, en mostri per pantalla el contingut.
+Anomeneu el guió amb el nom files.sh.
+
+EXEMPLES:
+El fitxer data.txt conté:
+CODELEARN
+El fitxer keydata conté:
+CODELEARN2
+
+$ ./files.sh data.txt keydata
+CODELEARN
+CODELEARN2
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Comprovar si s'han proporcionat noms de fitxer com a paràmetres
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 <file1> <file2> ..."
+  exit 1
+fi
+EXPLICACIÓ: # Recórrer els paràmetres (noms de fitxer) proporcionats
+for file in "$@"; do
+EXPLICACIÓ: # Comprovar si el fitxer existeix
+  if [ -e "$file" ]; then
+    cat "$file"  EXPLICACIÓ: # Mostrar el contingut del fitxer
+  fi
+done
