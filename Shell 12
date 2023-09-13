@@ -1,0 +1,46 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) que rebi un nom de fitxer com a paràmetre. 
+Aquest guió ha de mostrar per pantalla si el fitxer és llegible, si es pot escriure i si es pot executar per l'usuari.
+Anomeneu aquest guió amb el nom specifications.sh.
+
+EXEMPLES:
+$ ./specifications.sh not_executable.txt
+Specifications of not_executable.txt file 
+The file can be read
+The file can be written
+
+$ ./specifications.sh not_writable.txt
+Specifications of not_writable.txt file 
+The file can be read
+The file can be executed
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Comprovar si s'ha proporcionat un nom de fitxer com a paràmetre
+if [ $# -ne 1 ]; then
+  echo "Usage: $0 <file>"
+  exit 1
+fi
+file="$1"
+EXPLICACIÓ: # Comprovar si el fitxer existeix
+if [ ! -e "$file" ]; then
+  echo "Specifications of $file file"
+  echo "The file does not exist."
+  exit 1
+fi
+EXPLICACIÓ: # Comprovar si el fitxer és llegible
+if [ -r "$file" ]; then
+  echo "Specifications of $file file"
+  echo "The file can be read"
+else
+  echo "Specifications of $file file"
+  echo "The file cannot be read"
+fi
+EXPLICACIÓ: # Comprovar si el fitxer és escribible
+if [ -w "$file" ]; then
+  echo "The file can be written"
+fi
+EXPLICACIÓ: # Comprovar si el fitxer és executable
+if [ -x "$file" ]; then
+  echo "The file can be executed"
+fi
