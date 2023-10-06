@@ -13,3 +13,32 @@ Copied file rock.txt to ./artists_copy
 PISTA: Per resoldre aquest exercici podeu plantejar-vos de guardar en una variable el contingut del directori prova i després amb un bucle, recórrer aquests elements i anar-los copiant.
 
 CODE:
+#!/bin/bash
+
+EXPLICACIÓ: # Comprovar si el directori "artists_copy" existeix i, si no, crear-lo
+if [ ! -d "artists_copy" ]; then
+  mkdir artists_copy
+fi
+
+EXPLICACIÓ: # Comptador per afitxers copiats
+count=0
+
+EXPLICACIÓ: # Recórrer tots els fitxers del directori "artists"
+for file in artists/*; do
+  if [ -f "$file" ]; then
+    EXPLICACIÓ: # Obtenir el nom del fitxer sense la ruta
+    filename=$(basename "$file")
+    
+    EXPLICACIÓ: # Copiar el fitxer a "artists_copy"
+    cp "$file" "artists_copy/$filename"
+    
+    EXPLICACIÓ: # Augmentar el comptador
+    ((count++))
+    
+    EXPLICACIÓ: # Mostrar missatge de copia
+    echo "Copied file $filename to ./artists_copy"
+  fi
+done
+
+EXPLICACIÓ: # Mostrar el total de fitxers copiats
+echo "$count files copied"
