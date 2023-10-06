@@ -1,0 +1,15 @@
+ENUNCIAT:
+Escriviu un guió (shell script) de nom copy.sh que copii tots els fitxers del directori artists al subdirectori artists_copy.
+El guió ha de mostrar els noms dels fitxers que copii i, al final, ha d'indicar quants se n'han mogut. Si el directori artists_copy no existeix, cal crear-lo.
+
+EXEMPLES:
+$ ./copy.sh
+Copied file folk.txt to ./artists_copy
+Copied file hiphop.txt to ./artists_copy 
+Copied file jazz.txt to ./artists_copy
+Copied file rock.txt to ./artists_copy
+4 files copied
+
+PISTA: Per resoldre aquest exercici podeu plantejar-vos de guardar en una variable el contingut del directori prova i després amb un bucle, recórrer aquests elements i anar-los copiant.
+
+CODE:
