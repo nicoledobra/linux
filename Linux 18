@@ -1,0 +1,16 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) de nom search.sh que, passats diversos tipus d'extensions com a paràmetre,
+cerqui els fitxers amb aquestes extensions que hi hagi en el directori de treball.
+
+EXEMPLES:
+$ ./search.sh txt tar doc
+Number of parameters inserted: 3
+txt
+.//data.txt
+tar
+doc
+.//Documents/SW_Series4_readme-mory.doc
+
+PISTA: Per realitzar aquesta tasca us anirà bé recordar com funciona la comanda find.
+
+CODE:
