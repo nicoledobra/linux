@@ -1,0 +1,24 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) de nom compare.sh que donats dos paràmetres, els compari i digui quin dels dos és més gran o si són iguals.
+
+EXEMPLES:
+$ ./compare.sh
+You have to insert two numbers.
+$ ./compare.sh 10 10
+The two numbers are equal.
+$ ./compare.sh 10 12
+The first number is smaller than the second number.
+$ ./compare.sh 12 10
+The first number is greater than the second number.
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Verifica si s'han proporcionat dos arguments
+if [ $# -ne 2 ]; then
+    echo "You have to insert two numbers."
+elif [ $1 -eq $2 ]; then
+    echo "The two numbers are equal."
+elif [ $1 -lt $2 ]; then
+    echo "The first number is smaller than the second number."
+else
+    echo "The first number is greater than the second number."
+fi
