@@ -1,0 +1,21 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) de nom age.sh que, donat un paràmetre amb la nostra edat, ens digui si som o no majors d'edat.
+
+EXEMPLES:
+$ ./age.sh
+You have to insert at least one parameter.
+$ ./age.sh 10
+You are minor.
+$ ./age.sh 28
+You are legal age.
+
+CODE:
+#!/bin/bash
+# Verifica si s'han proporcionat dos arguments
+if [ $# -ne 1 ]; then
+    echo "You have to insert at least one parameter."
+elif [ $1 -lt 18 ]; then
+    echo "You are minor."
+else
+    echo "You are legal age."
+fi
