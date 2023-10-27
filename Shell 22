@@ -1,0 +1,38 @@
+ENUNCIAT:
+Dissenyeu un guió (shell script) de nom file.sh que demani a l'usuari un nom de fitxer. 
+Si el fitxer existeix, cal informar-ne.
+SI no existeix, cal crear-lo i informar de què s'ha creat amb el nom llegit.
+
+NOTA IMPORTANT: 
+Cada cop que comenceu l'exercici cal que feu servir la comanda ls per verificar que no hi ha cap fitxer a la sessio del terminal.
+L'únic que hi pot haver és el fitxer file.sh i només si esteu tornant intentar de nou l'exercici.
+En cas d'haver-hi algun fitxer, haureu de fer servir la comanda rm per eliminar-lo.
+
+EXEMPLES:
+$ ./file.sh
+Insert file name: fake.txt
+File does not exist.
+File fake.txt created successfully.
+$ ./file.sh
+Insert file name: fake.txt
+File fake.txt already exists.
+
+PISTA:
+Recordes que feia la comanda touch?
+
+CODE:
+#!/bin/bash
+EXPLICACIÓ: # Demanar al usuari que introdueixi un nom de fitxer
+read -p "Insert file name: " filename
+EXPLICACIÓ: # Comprovar si el fitxer ja existeix
+if [ -e "$filename" ]; then
+    echo "File $filename already exists."
+else
+    EXPLICACIÓ: # Crear el fitxer utilitzant la comanda "touch"
+    touch "$filename"
+    if [ $? -eq 0 ]; then
+        echo "File $filename created successfully."
+    else
+        echo "Failed to create file $filename."
+    fi
+fi
