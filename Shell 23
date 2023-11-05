@@ -1,0 +1,61 @@
+ENUNCIAT:
+DIssenyeu un guió (shell script) de nom menu.sh que mostri per pantalla un menú amb tres opcions:
+
+1) Saludar - el guió ha de demanar el nom a l'usuari i mostrar una salutació.
+2) Sumar - el guió ha de demanar dues xifres i mostrar per pantalla la seva suma.
+3) Sortir - el guió s'ha d'acabar.
+
+EXEMPLES:
+$ ./menu.sh
+Menu
+1) Salute 
+2) Sum 
+3) Exit
+Choose option: 1
+What is your name? George
+Welcome George
+Menu
+1) Salute 
+2) Sum 
+3) Exit 
+Choose option: 2
+Insert two integer numbers: 3 4
+The sum of 3 + 4 is 7
+Menu
+1) Salute 
+2) Sum 
+3) Exit
+Choose option: 3
+
+CODE:
+#!/bin/bash
+
+while [ opcio -ne 3 ]; do
+    clear
+    echo "Menu"
+    echo "1) Salute"
+    echo "2) Sum"
+    echo "3) Exit"
+    read -p "Choose option: " option
+
+    case $option in
+        1)
+            read -p "What is your name? " name
+            echo "Welcome $name"
+            ;;
+        2)
+            read -p "Insert two integer numbers: " num1 num2
+            sum=$((num1 + num2))
+            echo "The sum of $num1 + $num2 is $sum"
+            ;;
+        3)
+            echo "Goodbye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid option. Please choose 1, 2, or 3."
+            ;;
+    esac
+
+    read -p "Press Enter to continue..."
+done
