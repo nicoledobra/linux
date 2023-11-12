@@ -1,0 +1,148 @@
+ENUNCIATñ
+DIssenyeu un guió (shell script) de nom menu2.sh que mostri per pantalla un menú amb set opcions:
+1) Sumar - el guió ha de demanar dues xifres i mostrar per pantalla la seva suma.
+2) Restar - el guió ha de demanar dues xifres i mostrar per pantalla la seva resta.
+3) Multiplicar - el guió ha de demanar dues xifres i mostrar per pantalla la seva multiplicació.
+4) Divisió entera - el guió ha de demanar dues xifres i mostrar per pantalla la seva divisió entera.
+5) Residu - el guió ha de demanar dues xifres i mostrar per pantalla el residu de la seva divisió entera.
+6) Parell - el guió ha de demanar una xifra i mostrar per pantalla un missatge indicant si és parell.
+7) Sortir - el guió s'ha d'acabar.
+
+EXEMPLES:
+$ ./menu2.sh
+Menu
+1) Sum 
+2) Substract 
+3) Multiply 
+4) Integer division 
+5) Remainder
+6) Even
+7) Exit 
+Choose option: 1
+Insert two integer numbers: 4 3
+The sum of 4 + 3 is 7
+Menu
+1) Sum 
+2) Substract 
+3) Multiply 
+4) Integer division 
+5) Remainder
+6) Even
+7) Exit
+Choose option: 2
+Insert two integer numbers: 4 3
+The substraction of 4 - 3 is 1
+Menu
+1) Sum 
+2) Substract 
+3) Multiply 
+4) Integer division 
+5) Remainder
+6) Even
+7) Exit
+Choose option: 3
+Insert two integer numbers: 4 3
+The multiplication of 4 * 3 is 12
+Menu
+1) Sum 
+2) Substract 
+3) Multiply 
+4) Integer division 
+5) Remainder
+6) Even
+7) Exit
+Choose option: 4
+Insert two integer numbers: 4 3
+The division of 4 / 3 is 1
+Menu
+1) Sum 
+2) Substract 
+3) Multiply 
+4) Integer division 
+5) Remainder
+6) Even
+7) Exit
+Choose option: 5
+Insert two integer numbers: 4 3
+The remainder of the division of 4 / 3 is 1
+Menu
+1) Sum 
+2) Substract 
+3) Multiply 
+4) Integer division 
+5) Remainder
+6) Even
+7) Exit
+Choose option: 6
+Insert an integer number: 4
+Number 4 is even 
+Menu
+1) Sum 
+2) Substract 
+3) Multiply 
+4) Integer division 
+5) Remainder
+6) Even
+7) Exit
+Choose option: 7
+
+CODE:
+#!/bin/bash
+
+while [ opcio -ne 3 ]; do
+    clear
+    echo "Menu"
+    echo "1) Sum"
+    echo "2) Substract"
+    echo "3) Multiply"
+    echo "4) Integer division"
+    echo "5) Remainder"
+    echo "6) Even"
+    echo "7) Exit"
+    read -p "Choose option: " option
+
+    case $option in
+        1)
+            read -p "Insert two integer numbers: " num1 num2
+            result=$((num1 + num2))
+            echo "The sum of $num1 + $num2 is $result"
+            ;;
+        2)
+            read -p "Insert two integer numbers: " num1 num2
+            result=$((num1 - num2))
+            echo "The substraction of $num1 - $num2 is $result"
+            ;;
+        3)
+            read -p "Insert two integer numbers: " num1 num2
+            result=$((num1 * num2))
+            echo "The multiplication of $num1 * $num2 is $result"
+            ;;
+        4)
+            read -p "Insert two integer numbers: " num1 num2
+            result=$((num1 / num2))
+            echo "The division of $num1 / $num2 is $result"
+            ;;
+        5)
+            read -p "Insert two integer numbers: " num1 num2
+            result=$((num1 % num2))
+            echo "The remainder of the division of $num1 / $num2 is $result"
+            ;;
+        6)
+            read -p "Insert an integer number: " num
+            if [ $((num % 2)) -eq 0 ]; then
+                echo "Number $num is even."
+            else
+                echo "Number $num is odd."
+            fi
+            ;;
+        7)
+            echo "Goodbye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid option. Please choose 1, 2, 3, 4, 5, 6, or 7."
+            ;;
+    esac
+
+    read -p "Press Enter to continue..."
+done
