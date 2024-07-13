@@ -1,0 +1,13 @@
+ENUNCIAT:
+Escriu la consulta necessària per obtenir el nom de totes les peces que proporcioni el proveÏdor amb codi 'HAL'.
+
+CODE:
+SELECT Name FROM Pieces
+INNER JOIN Provides ON Provides.Piece = Pieces.Code
+WHERE Provides.Provider = 'HAL';
+
+EXAMPLES:
+Name
+Sprocket
+Screw
+Bolt  
