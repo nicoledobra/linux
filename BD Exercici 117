@@ -1,0 +1,13 @@
+ENUNCAT:
+Escriu la consulta necessària per obtenir el nom de tots els proveidors que "proporcionin" les peces amb el codi 1.
+
+CODE:
+SELECT Providers.Name FROM Providers
+JOIN Provides ON Providers.Code = Provides.Provider
+JOIN Pieces ON Provides.Piece = Pieces.Code
+WHERE Pieces.Code = 1;
+
+EXAMPLES:
+Name
+Clarke Enterprises
+Susan Calvin Corp.  
